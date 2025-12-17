@@ -1,187 +1,83 @@
-/* ---------------- GENERAL THEME ---------------- */
-
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0b0c10;
-    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 0 20px;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* ---------------- NAVBAR ---------------- */
-
-.navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1f2833;
-    padding: 14px 24px;
-    border-bottom: 2px solid #ffcf00;
+    gap: 20px;
+    padding: 30px;
 }
-
-.logo {
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.navbar a {
-    color: #f5f5f5;
-    margin-left: 16px;
-}
-
-.navbar a:hover {
-    color: #ffcf00;
-}
-
-/* ---------------- FOOTER ---------------- */
-
-.footer {
-    text-align: center;
-    padding: 12px;
-    font-size: 0.85rem;
-    margin-top: 40px;
-    background: #1f2833;
-    color: #ddd;
-}
-
-/* ---------------- CARD ---------------- */
 
 .card {
-    background: #1f2833;
+    background: #1e293b;
+    padding: 25px;
     border-radius: 12px;
-    padding: 20px 24px;
-    box-shadow: 0 0 18px rgba(0,0,0,0.4);
-    margin-bottom: 24px;
+    width: 50%;
 }
 
-.center-card {
-    text-align: center;
+h2 {
+    margin-top: 0;
 }
 
-.big-number {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-top: 12px;
-}
-
-/* ---------------- GRID LAYOUTS ---------------- */
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 20px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
-
-@media(max-width:900px){
-    .grid-2, .grid-3 {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ---------------- BUTTONS ---------------- */
-
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: none;
-    text-align: center;
-}
-
-.btn.primary {
-    background: #ffcf00;
-    color: #000;
-}
-
-.btn.secondary {
-    border: 1px solid #ffcf00;
-    color: #ffcf00;
-    background: transparent;
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
-
-.btn.full-width {
+input, select, textarea {
     width: 100%;
-}
-
-/* ---------------- FORM ---------------- */
-
-.form-grid label {
-    display: block;
-    margin-bottom: 15px;
-}
-
-input {
-    width: 100%;
-    padding: 8px 10px;
-    margin-top: 6px;
-    background: #0b0c10;
-    color: #f5f5f5;
-    border: 1px solid #444;
+    margin: 8px 0;
+    padding: 10px;
     border-radius: 6px;
+    border: none;
+    outline: none;
 }
 
-/* ---------------- TABLE STYLE ---------------- */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+button {
     margin-top: 12px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    background: #facc15;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-table th, table td {
-    border: 1px solid #333;
-    padding: 8px;
-    text-align: center;
+button.secondary {
+    background: #64748b;
+    color: white;
 }
 
-table th {
-    background: #181c25;
-    color: #ffcf00;
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
 }
 
-/* ---------------- WORKFLOW BOXES ---------------- */
-
-.workflow-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-    gap: 16px;
+.modal-content {
+    background: #1e293b;
+    width: 400px;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 8% auto;
 }
 
-.workflow-step {
-    padding: 14px;
+/* UEBA POPUP */
+.ueba-popup {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #7c2d12;
+    padding: 15px;
     border-radius: 10px;
-    background: #151924;
-    border: 1px solid #333;
-    opacity: 0.5;
-    transition: 0.3s ease;
+    width: 260px;
+    box-shadow: 0 0 10px black;
 }
 
-.workflow-step.active {
-    opacity: 1;
-    border-color: #ffcf00;
-    box-shadow: 0 0 12px rgba(255, 207, 0, 0.5);
-    transform: scale(1.03);
+.ueba-popup button {
+    margin-top: 10px;
+    background: #f97316;
 }
