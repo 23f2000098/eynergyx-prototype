@@ -1,15 +1,84 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EYnergyX – Failure Prediction Engine</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
 
-<div class="card center-card">
-    <h1>Predictive Automotive Maintenance</h1>
-    <p>End-to-end intelligent system with ML, agent workflow, dashboard & logs.</p>
+<div class="container">
 
-    <div class="button-row">
-        <a href="{{ url_for('predict') }}" class="btn primary">Predict Failure</a>
-        <a href="{{ url_for('workflow') }}" class="btn secondary">Agent Workflow</a>
-        <a href="{{ url_for('dashboard') }}" class="btn secondary">Dashboard</a>
+    <!-- LEFT PANEL -->
+    <div class="card">
+        <h2>Failure Prediction Engine</h2>
+        <p>Enter the vehicle sensor values:</p>
+
+        <input type="number" id="engineTemp" placeholder="Engine Temperature (°C)">
+        <input type="number" id="fuelEfficiency" placeholder="Fuel Efficiency (km/l)">
+        <input type="number" id="vibration" placeholder="Vibration Level (0–10)">
+        <input type="number" id="odometer" placeholder="Odometer (km)">
+        <input type="number" id="coolant" placeholder="Coolant Level (%)">
+        <input type="number" id="battery" placeholder="Battery Voltage (V)">
+
+        <button onclick="predictFailure()">Predict Failure</button>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="card">
+        <h2>Prediction Result</h2>
+
+        <div id="result">
+            No prediction yet. Enter values and submit.
+        </div>
+
+        <button id="bookServiceBtn" onclick="openServiceModal()" style="display:none;">
+            Book Service Appointment
+        </button>
+    </div>
+
+</div>
+
+<!-- SERVICE BOOKING MODAL -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <h3>Schedule Service Appointment</h3>
+
+        <label>Service In Date</label>
+        <input type="date">
+
+        <label>Service Out Date</label>
+        <input type="date">
+
+        <label>Preferred Time Slot</label>
+        <select>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+        </select>
+
+        <label>Service Type</label>
+        <select>
+            <option>General Service</option>
+            <option>Engine Check</option>
+            <option>Battery Issue</option>
+        </select>
+
+        <label>Additional Notes</label>
+        <textarea placeholder="Optional notes..."></textarea>
+
+        <button onclick="confirmService()">Confirm Appointment</button>
+        <button class="secondary" onclick="closeServiceModal()">Cancel</button>
     </div>
 </div>
 
-{% endblock %}
+<!-- UEBA SECURITY POPUP -->
+<div id="uebaAlert" class="ueba-popup">
+    🛡 UEBA Security Alert
+    <p>Unusual agent behaviour detected during orchestration.</p>
+    <button onclick="dismissUEBA()">Acknowledge</button>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
